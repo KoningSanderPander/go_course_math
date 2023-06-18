@@ -1,5 +1,11 @@
 package geometry
 
-func Cube(x int) int {
-	return x * x * x
+import "errors"
+
+func Cube(x int) (int, error) {
+	if x == 0 {
+		return 0, errors.New("cubes with edge length 0 are not allowed")
+	}
+
+	return x * x * x, nil
 }
